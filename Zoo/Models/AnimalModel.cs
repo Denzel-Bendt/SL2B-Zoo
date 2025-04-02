@@ -18,7 +18,7 @@ namespace Zoo.Models
         public AnimalSize Size { get; set; }
         public DietaryClass DietaryClass { get; set; }
         public ActivityPattern ActivityPattern { get; set; }
-
+        public string FeedingSchedule { get; set; }
         public int? PreyId { get; set; }
         public Animal? Prey { get; set; }
 
