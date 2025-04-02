@@ -1,0 +1,28 @@
+@model IEnumerable<Animal>
+
+    <h2>Dierenbeheer</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Soort</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var animal in Model)
+        {
+            <tr>
+                <td>@animal.Name</td>
+                <td>@animal.Species</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@animal.Id" class="btn btn-sm btn-warning">Bewerken</a>
+                    <a asp-action="Delete" asp-route-id="@animal.Id" class="btn btn-sm btn-danger">Verwijderen</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <a asp-action="Create" class="btn btn-success">Nieuw Dier Toevoegen</a>

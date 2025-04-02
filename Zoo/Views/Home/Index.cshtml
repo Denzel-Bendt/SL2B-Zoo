@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Dierentuin Beheer";
+}
+
+<div class="hero-section">
+    <h1>Welkom bij Virtuele Dierentuin</h1>
+    <div class="action-buttons">
+        <a asp-controller="Animal" asp-action="Index" class="btn btn-primary">
+            Dieren Beheren
+        </a>
+        <a asp-controller="Animal" asp-action="Status" class="btn btn-secondary">
+            Dierstatus Bekijken
+        </a>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        text-align: center;
+        padding: 4rem 0;
+    }
+    .action-buttons {
+        margin-top: 2rem;
+    }
+    .btn {
+        padding: 0.8rem 1.5rem;
+        margin: 0 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+</style>

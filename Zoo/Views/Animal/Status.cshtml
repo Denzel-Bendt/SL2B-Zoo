@@ -1,0 +1,35 @@
+@model IEnumerable<AnimalStatusVM>
+
+<h2>Dierstatus</h2>
+
+<div class="status-container">
+    @foreach (var animal in Model)
+    {
+        <div class="animal-card @(animal.IsActive ? "active" : "inactive")">
+            <h3>@animal.Name</h3>
+            <div class="status-indicator">
+                <span class="@(animal.IsActive ? "active" : "")">@(animal.IsActive ? "Actief" : "Slaapt")</span>
+                <span class="@(animal.IsEating ? "eating" : "")">@(animal.IsEating ? "Eet nu" : "Niet aan het eten")</span>
+            </div>
+        </div>
+    }
+</style>
+
+<style>
+    .status-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    .animal-card {
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+    }
+    .active {
+        background-color: #d4edda;
+    }
+    .eating {
+        color: #28a745;
+    }
+</style>
