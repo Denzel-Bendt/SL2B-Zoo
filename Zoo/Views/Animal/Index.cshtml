@@ -7,6 +7,8 @@
             <tr>
                 <th>Naam</th>
                 <th>Soort</th>
+                <th>Leeftijd</th>
+                <th>Verblijf</th>
                 <th>Acties</th>
             </tr>
         </thead>
@@ -14,8 +16,11 @@
             @foreach (var animal in Model)
         {
             <tr>
-                <td>@animal.Name</td>
-                <td>@animal.Species</td>
+                <td>@Html.DisplayFor(modelItem => animal.Name)</td>
+                <td>@Html.DisplayFor(modelItem => animal.Species)</td>
+                <td>@Html.DisplayFor(modelItem => animal.Age)</td>
+                <td>@Html.DisplayFor(modelItem => animal.Enclosure.Name)</td>
+
                 <td>
                     <a asp-action="Edit" asp-route-id="@animal.Id" class="btn btn-sm btn-warning">Bewerken</a>
                     <a asp-action="Delete" asp-route-id="@animal.Id" class="btn btn-sm btn-danger">Verwijderen</a>

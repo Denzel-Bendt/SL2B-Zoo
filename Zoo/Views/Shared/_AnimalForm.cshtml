@@ -1,0 +1,31 @@
+@model Zoo.Models.Animal
+
+<div class="form-group">
+    <label asp-for="Age" class="control-label"></label>
+    <input asp-for="Age" class="form-control" type="number" min="0" />
+    <span asp-validation-for="Age" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="ActivityPattern" class="control-label">Activity Pattern</label>
+    <select asp-for="ActivityPattern" class="form-control"
+            asp-items="Html.GetEnumSelectList<ActivityPattern>()">
+        <option value="">-- Select activity --</option>
+    </select>
+    <span asp-validation-for="ActivityPattern" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="CategoryId" class="control-label">Category</label>
+    <select asp-for="CategoryId" class="form-control"
+            asp-items="ViewBag.CategoryId">
+        <option value="">-- Select category --</option>
+    </select>
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="FeedingSchedule" class="control-label">Feeding Schedule</label>
+    <input asp-for="FeedingSchedule" class="form-control" placeholder="e.g., 08:00, 12:00, 17:00" />
+    <span asp-validation-for="FeedingSchedule" class="text-danger"></span>
+</div>

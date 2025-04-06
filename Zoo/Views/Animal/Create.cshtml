@@ -1,0 +1,49 @@
+﻿@model Zoo.Models.Animal
+
+@{
+    ViewData["Title"] = "Add New Animal";
+}
+
+<h1>Add New Animal</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Eerste deel van het formulier (originele velden) -->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Species" class="control-label"></label>
+                <input asp-for="Species" class="form-control" />
+                <span asp-validation-for="Species" class="text-danger"></span>
+            </div>
+
+            <!-- Hier voegen we de partial view in -->
+            <partial name="_AnimalForm" model="Model" />
+
+            <!-- Bestaande velden na de partial view -->
+            <div class="form-group">
+                <label asp-for="EnclosureId" class="control-label">Enclosure</label>
+                <select asp-for="EnclosureId" class="form-control" asp-items="ViewBag.EnclosureId"></select>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary ml-2">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
